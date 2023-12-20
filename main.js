@@ -2,21 +2,30 @@ import './style.css';
 
 const cursor = document.querySelector("#cursor");
 
-document.onkeydown = function(e) {
+let moveLeft = 80;
+let moveRight = 80;
+let moveUp = 60;
+let moveDown = 60;
+
+addEventListener("keydown", function(e) {
   switch (e.code) {
     case "ArrowLeft":
+      moveLeft += 80
       cursor.style.position = "relative";
-      cursor.style.right = "80px";
+      cursor.style.right = moveLeft + "px";
       break;
     case "ArrowUp":
+      moveUp += 60
       cursor.style.position = "relative";
-      cursor.style.bottom = "100px"
+      cursor.style.bottom = moveUp + "px";
       break;
     case "ArrowRight":
-      cursor.style.marginLeft = "80px";
+      moveRight += 80
+      cursor.style.marginLeft = moveRight + "px";
       break;
     case "ArrowDown":
-      cursor.style.marginTop = "100px";
+      moveDown += 60
+      cursor.style.marginTop = moveDown + "px";
       break;
   }
-}
+});
